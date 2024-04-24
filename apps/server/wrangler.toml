@@ -1,5 +1,6 @@
 node_compat = true
-name = "hono-server"
+send_metrics = false
+name = "server"
 compatibility_date = "2023-12-01"
 
 # [vars]

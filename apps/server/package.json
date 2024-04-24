@@ -1,5 +1,5 @@
 {
-  "name": "@codaco/api",
+  "name": "server",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -7,10 +7,11 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
+    "dev": "CF_METRICS=true wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts",
     "db:push": "drizzle-kit push:sqlite --config drizzle.config.ts",
-    "db:generate": "drizzle-kit generate:sqlite --config drizzle.config.ts"
+    "db:generate": "drizzle-kit generate:sqlite --config drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config drizzle.config.ts"
   },
   "dependencies": {
     "better-sqlite3": "^9.5.0",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
     "@hono/zod-validator": "^0.2.1",
+    "@types/better-sqlite3": "^7.6.10",
     "drizzle-kit": "^0.20.13",
     "wrangler": "^3.47.0",
     "zod": "^3.22.4"
